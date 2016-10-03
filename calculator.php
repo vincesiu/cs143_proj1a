@@ -3,8 +3,26 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <title>Calculator Application</title>
+  
 
-  <!-- <link rel="stylesheet" href="style.css"/> -->
+  <!-- basic styling -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <style type="text/css">
+  	* {
+  		font-family: 'Roboto', sans-serif;
+  	}
+  	body {
+	    max-width: 90%;
+	    width: 600px;
+	    margin: 5% auto auto auto;
+	}
+	.inline {
+		display: inline;
+	}
+	div {
+		margin: 1em 0 1em 0;
+	}
+  </style>
 </head>
 
 <body>
@@ -28,18 +46,25 @@
 		if ($equ !== '') {
 	?>
 
-		<p>Input: 
-			<?php echo $equ; ?>	
-		</p>
+		<div>
+			<h3 class="inline">Input:</h3>
+			<p class="inline"">
+				<?php 
+					echo $equ; 
+				?>		
+			</p>
+		</div>
 
-		<h2>Result:</h2>
-		<p>
-			<?php 
-				// TODO: error check (invalid chars, div by zero)
-				// TODO: evaluate
-				echo $equ; 
-			?>		
-		</p>
+		<div>
+			<h3 class="inline">Result:</h3>
+			<p class="inline">
+				<?php 
+					// TODO: error check (invalid chars, div by zero)
+					// TODO: evaluate
+					echo $equ; 
+				?>		
+			</p>
+		</div>
 
 	<?php } ?>
 </body>
