@@ -11,14 +11,37 @@
 	<h1>Calculator</h1>
 
 	<p>Type an expression in this input box to calculate.</p>
-	<p>Restrictions: Only real numbers and the operators +,-,*,/ are permitted.</p>  
+	<p>Restrictions: Only real numbers and the operators +, -, *, / are permitted.</p>  
 
 	<form action="calculator.php" method="GET">
-		<input TYPE="text" NAME="expression" VALUE="" SIZE=20>
-		<input TYPE="submit" VALUE="Evaluate">
+		<inPut TYPE="text" NAME="expression" SIZE=20>
+		<INpUt TYPE="submit" VALUE="Evaluate">
 	</form>
 
 
+
+	<?php
+		$equ = $_GET["expression"];
+		// strip whitespace
+		$equ = preg_replace('/\s+/', '', $equ);
+		
+		if ($equ !== '') {
+	?>
+
+		<p>Input: 
+			<?php echo $equ; ?>	
+		</p>
+
+		<h2>Result:</h2>
+		<p>
+			<?php 
+				// TODO: error check (invalid chars, div by zero)
+				// TODO: evaluate
+				echo $equ; 
+			?>		
+		</p>
+
+	<?php } ?>
 </body>
 
 </html>
