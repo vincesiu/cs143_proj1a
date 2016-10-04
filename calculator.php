@@ -61,7 +61,11 @@
 				<?php 
 					// TODO: error check (invalid chars, div by zero)
 					// TODO: evaluate
-					echo $equ; 
+                    $ret = eval("return $equ;");
+                    if (preg_match('/[^0-9+\-*]/', $equ)){
+                        echo "failed";
+                    }
+					echo $ret; 
 				?>		
 			</p>
 		</div>
