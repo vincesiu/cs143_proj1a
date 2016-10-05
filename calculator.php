@@ -82,7 +82,7 @@
 
                     } else {
                         $ret = eval("return $equ;");
-                        if ($ret == FALSE) {
+                        if ($ret === FALSE) {
                             //catches if the mathematical expression
                             //is improperly formed, eg. 1++1
                             $ret = "Invalid Expression!";
