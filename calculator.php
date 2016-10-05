@@ -61,11 +61,27 @@
 				<?php 
 					// TODO: error check (invalid chars, div by zero)
 					// TODO: evaluate
-                    $ret = eval("return $equ;");
-                    if (preg_match('/[^0-9+\-*]/', $equ)){
-                        echo "failed";
+                    $ret="DefaultValue";
+                    if (preg_match('/[^0-9.*\/+\-\s]/', $equ)) {
+                       //catches invalid characters
+                        //list of valid characters:
+                        //  1. 0-9
+                        //  2. .
+                        //  3. +-
+                        //  4. /*
+                        //  5. whitespace
+                        $ret="Invalid Expression!";
+                    } elseif (preg_match('/\/\s*0/', $equ)) {
+                        //division by zero
+                        $ret = "Division by zero error!";
+                    } elseif (preg_match('/\*\*/', $equ)) {
+                        //catching a 
+                        $ret = "Invalid Expression";
+                    } else {
+                        $ret = eval("return $equ;");
+					    $ret = $equ . " = " . $ret; 
                     }
-					echo $ret; 
+					echo $ret;
 				?>		
 			</p>
 		</div>
