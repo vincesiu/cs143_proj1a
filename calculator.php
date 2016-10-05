@@ -75,11 +75,15 @@
                         //division by zero
                         $ret = "Division by zero error!";
                     } elseif (preg_match('/\*\*/', $equ)) {
-                        //catching a 
-                        $ret = "Invalid Expression";
+                        //catching an exponentiation operator
+                        $ret = "Invalid Expression!";
                     } else {
                         $ret = eval("return $equ;");
-					    $ret = $equ . " = " . $ret; 
+                        if ($ret == FALSE) {
+                            $ret = "Invalid Expression!";
+                        } else {
+					        $ret = $equ . " = " . $ret; 
+                        }
                     }
 					echo $ret;
 				?>		
